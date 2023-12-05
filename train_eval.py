@@ -326,6 +326,7 @@ def main(_):
           action = (action + np.random.normal(
               0, 0.1, size=action.shape)).clip(-1, 1)
 
+      action = env.action(action)
       next_obs, reward, done, _ = env.step(action)
 
       # done caused by episode truncation.
