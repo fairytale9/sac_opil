@@ -29,11 +29,11 @@ import tensorflow.compat.v2 as tf
 from tf_agents.replay_buffers import tf_uniform_replay_buffer
 from tf_agents.specs import tensor_spec
 from tqdm import tqdm
-from value_dice import data_utils
-from value_dice import gail
-from value_dice import twin_sac
-from value_dice import value_dice
-from value_dice import wrappers
+from sac_opil import data_utils
+from sac_opil import gail
+from sac_opil import twin_sac
+from sac_opil import value_dice
+from sac_opil import wrappers
 
 FLAGS = flags.FLAGS
 
@@ -53,7 +53,7 @@ flags.DEFINE_float('tau', 0.005,
                    'Soft update coefficient for the target network.')
 flags.DEFINE_integer('hidden_size', 256, 'Hidden size.')
 flags.DEFINE_integer('updates_per_step', 1, 'Updates per time step.')
-flags.DEFINE_integer('max_timesteps', int(1e5), 'Max timesteps to train.')
+flags.DEFINE_integer('max_timesteps', int(2e5), 'Max timesteps to train.')
 flags.DEFINE_integer('num_recent_policies', 4, 'Number of policies to train rewards.')
 flags.DEFINE_integer('num_trajectories', 1, 'Number of trajectories to use.')
 flags.DEFINE_integer('num_random_actions', int(2e3),
