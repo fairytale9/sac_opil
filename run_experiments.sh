@@ -14,16 +14,11 @@
 
 #!/bin/bash
 
-wget -P value_dice/datasets/ https://storage.googleapis.com/gresearch/value_dice/datasets/Ant-v2.npz
-wget -P value_dice/datasets/ https://storage.googleapis.com/gresearch/value_dice/datasets/HalfCheetah-v2.npz
-wget -P value_dice/datasets/ https://storage.googleapis.com/gresearch/value_dice/datasets/Hopper-v2.npz
-wget -P value_dice/datasets/ https://storage.googleapis.com/gresearch/value_dice/datasets/Walker2d-v2.npz
-
 declare -a env_names=("HalfCheetah-v2"  "Hopper-v2"  "Walker2d-v2" "Ant-v2")
-declare -a algos=("bc" "dac" "value_dice")
+declare -a algos=("dac")
 
-expert_dir="./datasets/"
-save_dir="./save/"
+expert_dir="./sac_opil/datasets/"
+save_dir="./sac_opil/save/"
 
 for algo in "${algos[@]}"
 do
@@ -37,7 +32,7 @@ do
         --algo $algo \
         --env_name $env_name \
         --seed $seed \
-        --num_trajectories 1 \
+        --num_trajectories 10 \
         --alsologtostderr
     done
   done
