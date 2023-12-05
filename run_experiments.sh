@@ -14,7 +14,7 @@
 
 #!/bin/bash
 
-declare -a env_names=("HalfCheetah-v2"  "Hopper-v2"  "Walker2d-v2" "Ant-v2")
+declare -a env_names=("Humanoid-v2"  "HumanoidStandup-v2"  "InvertedPendumlum-v2" "Swimmer-v2")
 declare -a algos=("dac")
 
 expert_dir="./sac_opil/datasets/"
@@ -24,9 +24,9 @@ for algo in "${algos[@]}"
 do
   for env_name in "${env_names[@]}"
   do
-    for ((seed=0;seed<10;seed+=1))
+    for ((seed=0;seed<4;seed+=1))
     do
-      python -m value_dice.train_eval \
+      python -m sac_opil.train_eval \
         --expert_dir $expert_dir \
         --save_dir $save_dir \
         --algo $algo \
