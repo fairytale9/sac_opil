@@ -14,7 +14,7 @@
 
 #!/bin/bash
 
-declare -a env_names=("Humanoid-v2"  "HumanoidStandup-v2"  "InvertedPendumlum-v2" "Swimmer-v2")
+declare -a env_names=("Humanoid-v2"  "HumanoidStandup-v2")
 declare -a algos=("dac")
 
 expert_dir="./sac_opil/datasets/"
