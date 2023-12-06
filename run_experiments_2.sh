@@ -14,7 +14,7 @@
 
 #!/bin/bash
 
-declare -a env_names=("InvertedPendumlum-v2" "Swimmer-v2")
+declare -a env_names=("InvertedPendulum-v2" "Swimmer-v2")
 declare -a algos=("dac")
 
 expert_dir="./sac_opil/datasets/"
