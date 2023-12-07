@@ -29,11 +29,11 @@ import tensorflow.compat.v2 as tf
 from tf_agents.replay_buffers import tf_uniform_replay_buffer
 from tf_agents.specs import tensor_spec
 from tqdm import tqdm
-from sac_opil import data_utils
-from sac_opil import gail
-from sac_opil import twin_sac
-from sac_opil import value_dice
-from sac_opil import wrappers
+from sac_opil_1 import data_utils
+from sac_opil_1 import gail
+from sac_opil_1 import twin_sac
+from sac_opil_1 import value_dice
+from sac_opil_1 import wrappers
 
 FLAGS = flags.FLAGS
 
@@ -227,7 +227,7 @@ def main(_):
   expert_dataset_iter = iter(expert_dataset)
 
   hparam_str_dict = dict(
-      seed=FLAGS.seed, algo=FLAGS.algo, env_name=FLAGS.env_name)
+      seed=FLAGS.seed, algo=FLAGS.algo, env_name=FLAGS.env_name, N=FLAGS.num_recent_policies)
   hparam_str = ','.join(['%s=%s' % (k, str(hparam_str_dict[k])) for k in
                          sorted(hparam_str_dict.keys())])
 
