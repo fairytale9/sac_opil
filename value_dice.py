@@ -17,8 +17,8 @@
 
 import numpy as np
 import tensorflow.compat.v2 as tf
-from sac_opil import keras_utils
-from sac_opil import twin_sac
+from sac_opil_1 import keras_utils
+from sac_opil_1 import twin_sac
 
 
 EPS = np.finfo(np.float32).eps
