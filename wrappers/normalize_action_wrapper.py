@@ -50,8 +50,10 @@ def check_and_normalize_box_actions(env):
   low, high = env.action_space.low, env.action_space.high
 
   if isinstance(env.action_space, spaces.Box):
-    logging.info('Normalizing environment actions.')
-    return NormalizeBoxActionWrapper(env)
+    if (np.abs(low + np.ones_like(low)).max() > 1e-6 or
+        np.abs(high - np.ones_like(high)).max() > 1e-6):
+      logging.info('Normalizing environment actions.')
+      return NormalizeBoxActionWrapper(env)
 
   # Environment does not need to be normalized.
   return env
