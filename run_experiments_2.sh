@@ -17,8 +17,8 @@
 declare -a env_names=("InvertedPendulum-v2" "Swimmer-v2")
 declare -a algos=("dac")
 
-expert_dir="./sac_opil/datasets/"
-save_dir="./sac_opil/save/"
+expert_dir="./sac_opil_1/datasets/"
+save_dir="./sac_opil_1/save/"
 
 for algo in "${algos[@]}"
 do
@@ -26,12 +26,13 @@ do
   do
     for ((seed=0;seed<4;seed+=1))
     do
-      python -m sac_opil.train_eval \
+      python -m sac_opil_1.train_eval \
         --expert_dir $expert_dir \
         --save_dir $save_dir \
         --algo $algo \
         --env_name $env_name \
         --seed $seed \
+        --num_recent_policies 2048 \
         --num_trajectories 10 \
         --alsologtostderr
     done
